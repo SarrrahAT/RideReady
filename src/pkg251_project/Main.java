@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Sarah Altalhi");
          System.out.println("Sara Alrashdi");
-         System.out.println("Hello Raghad Farghal");
+         System.out.println("Raghad Farghal");
          
         
     }
