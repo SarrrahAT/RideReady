@@ -47,6 +47,6 @@ public class Student {
     } 
     
     public boolean  makeSubscription(int monthNum, double cost, Date startDate){
-        
+        return true;
     }
 }
