@@ -49,4 +49,7 @@ public class Student {
     public boolean  makeSubscription(int monthNum, double cost, Date startDate){
         return true;
     }
+    public void makePayment(String studentName, String cardNumber, double cost) {   
+}
+    
 }
