@@ -46,4 +46,7 @@ public class Student {
         this.homeAddress = homeAddress;
     } 
     
+    public boolean  makeSubscription(int monthNum, double cost, Date startDate){
+        
+    }
 }
