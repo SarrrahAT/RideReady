@@ -5,6 +5,8 @@
  */
 
 package pkg251_project;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 public class Student {
    private String studentName;
@@ -46,7 +48,58 @@ public class Student {
         this.homeAddress = homeAddress;
     } 
     
-    public boolean  makeSubscription(int monthNum, double cost, Date startDate){
-        return true;
+     public static boolean makeSubscription(int startDay, int startMonth, int startYear, int packageChoice, boolean isActive) {
+        // Get the current date
+        LocalDate currentDate = LocalDate.now();
+        LocalDate startDate = LocalDate.of(startYear, startMonth, startDay);
+
+        // Calculate cost based on package choice
+        int calculatedCost = calculateCost(packageChoice);
+
+        // Calculate end date based on the chosen package
+        LocalDate endDate = startDate.plusMonths(packageChoice);
+
+        // If start date is in the future, print the difference and when the subscription will become active
+        if (startDate.isAfter(currentDate)) {
+            long daysDiff = startDate.toEpochDay() - currentDate.toEpochDay();
+            long monthsDiff = daysDiff / 30;
+            System.out.println("Subscription will start in " + daysDiff + " days ");
+            System.out.println("Subscription will become active in " + monthsDiff + " months");
+        } else if (startDate.isEqual(currentDate)) {
+            System.out.println("Subscription starts today!");
+        } else {
+            // Check if the end date is after the current date
+            if (endDate.isAfter(currentDate)) {
+                // Display subscription details
+                String startDateString = startDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                String endDateString = endDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                System.out.println("Subscription details:");
+                System.out.println("Start Date: " + startDateString);
+                System.out.println("End Date: " + endDateString);
+                System.out.println("Cost: " + calculatedCost);
+                System.out.println("Active: " + isActive);
+                return isActive;
+            } else {
+                System.out.println("Subscription has expired.");
+                return false;
+            }
+        }
+
+        // Subscription is not yet active
+        return false;
+    }
+
+    private static int calculateCost(int packageChoice) {
+        // Calculate cost based on package choice
+        switch (packageChoice) {
+            case 1: // Monthly subscription
+                return 700;
+            case 2: // 2-month subscription
+                return 1400;
+            case 3: // 3-month subscription
+                return 2100;
+            default:
+                return -1; // Invalid package choice
+        }
     }
 }
