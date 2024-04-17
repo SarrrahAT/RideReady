@@ -83,4 +83,14 @@ public class Payment {
         System.out.println("End Date: " + dateFormat.format(endDate));
     }
     
+   // Method for making payment
+    public void makePayment(String studentName, String cardNumber, double cost) {
+        double totalCost = cost * 1.15; // Adding 15% tax
+        // Process payment here
+        
+        // Display payment confirmation message
+        System.out.println("Payment for " + studentName + " with card number " + cardNumber + " is done successfully. Total cost: " + totalCost);
+    }
 }
+ 
+
