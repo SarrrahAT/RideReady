@@ -86,13 +86,12 @@ public class Payment {
     
    // Method for making payment
    public static void makePayment(String studentName, String cardNumber, double cost) {
-    if (cardNumber.length() != 16) {
-        System.out.println("Card number must be 16 numbers.");
-        return;
-    }
-
     if (cardNumber.isEmpty()) {
         System.out.println("Card number cannot be empty. Please enter the number.");
+        return;
+    }
+ if (cardNumber.length() != 16) {
+        System.out.println("Card number must be 16 numbers.");
         return;
     }
 
