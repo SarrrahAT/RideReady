@@ -7,6 +7,7 @@ package pkg251_project;
 import java.util.Date;
 
 import java.text.SimpleDateFormat;
+import java.util.concurrent.Flow.Subscription;
 /**
  *
  * @author yaraa
@@ -67,10 +68,10 @@ public class Payment {
             return false;
         }
     }
-    if (cardNumberStr.length() != 12) {
+    if (cardNumberStr.length() != 10) {
         System.out.println("The card number is not true. Please try again.");
         return false;
-    }
+    }else System.out.println("The card number is  true");
     return true;
     }
     
