@@ -60,8 +60,33 @@ public class Main {
 
         Student.makeSubscription(startDay, startMonth, startYear, packageChoice, isActive);
        
-       
+       /// Test the makePayment -sara Alrashdi
+
+        //Requesting the user to enter the student's name
+        System.out.println("Enter student name:");
+        String studentName = scanner.nextLine();
+
+      //  Requesting the user to enter the card number
+        System.out.println("Enter card number:");
+        String cardNumber = scanner.nextLine();
+
+     // Requesting the user to enter the cost 
+        System.out.println("Enter cost:");
+        double Cost = scanner.nextDouble();
+
+       //Call method MakePayment
+       Payment.makePayment(studentName, cardNumber, Cost);
+
+
+      
+    }    
+        
+        
         
     }
+   
     
-} 
+    
+    
+    
+

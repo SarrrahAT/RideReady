@@ -85,7 +85,7 @@ public class Payment {
     }
     
    // Method for making payment
-   public void makePayment(String studentName, String cardNumber, double cost) {
+   public static void makePayment(String studentName, String cardNumber, double cost) {
     if (cardNumber.length() != 16) {
         System.out.println("Card number must be 16 numbers.");
         return;
@@ -97,7 +97,7 @@ public class Payment {
     }
 
     double totalCost = cost * 1.15;
-    System.out.println("The payment is done successfully.");
+           System.out.println("Payment for " + studentName + " with card number " + cardNumber + " is done successfully. Total cost: " + totalCost);
 }
 
 }
