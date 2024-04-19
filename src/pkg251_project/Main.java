@@ -62,35 +62,28 @@ public class Main {
         Student.makeSubscription(startDay, startMonth, startYear, packageChoice, isActive);
        
        /// Test the makePayment -sara Alrashdi
-
-        //Requesting the user to enter the student's name
-        System.out.println("Enter student name:");
+      
+            // Prompt user to enter student name
+        System.out.print("Enter student name: ");
         String studentName = scanner.nextLine();
-
-      //  Requesting the user to enter the card number
-        System.out.println("Enter card number:");
+        
+        // Prompt user to enter card number
+        System.out.print("Enter card number: ");
         String cardNumber = scanner.nextLine();
-
-     // Requesting the user to enter the cost 
-        System.out.println("Enter cost:");
-        double Cost = scanner.nextDouble();
-
-       //Call method MakePayment
-       Payment.makePayment(studentName, cardNumber, Cost);
-
-        // Test isBusFull method - Sarah Altalhi
-        int busCapacity = 50; // Example capacity of the bus
-        int reservedSeats = 50; // Example number of reserved seats
         
-        // Call the method and check if the bus is full
-        boolean isFull = isBusFull(busCapacity, reservedSeats);
-
-        // Print the result (optional)
-        System.out.println("Is the bus full? " + isFull);
+        // Call makePayment method with actual inputs
+       Payment.makePayment(studentName, cardNumber, 0); // 0 as initial value for subscription months
         
-    }    
-          
+       
+        // Close scanner
+        scanner.close(); 
     }
+      
+}  
+
+    
+          
+    
    
     
     

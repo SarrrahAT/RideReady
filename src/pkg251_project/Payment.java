@@ -7,6 +7,7 @@ package pkg251_project;
 import java.util.Date;
 
 import java.text.SimpleDateFormat;
+import java.util.Scanner;
 import java.util.concurrent.Flow.Subscription;
 /**
  *
@@ -83,21 +84,55 @@ public class Payment {
         System.out.println("Start Date: " + dateFormat.format(startDate));
         System.out.println("End Date: " + dateFormat.format(endDate));
     }
-    
+    //////////////////////////////////////////////////////
    // Method for making payment
-   public static void makePayment(String studentName, String cardNumber, double cost) {
-    if (cardNumber.isEmpty()) {
-        System.out.println("Card number cannot be empty. Please enter the number.");
-        return;
+   public static void makePayment(String studentName, String cardNumber, int subscriptionMonths) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Check if card number is empty or less than 16 digits
+        while (cardNumber.isEmpty() || cardNumber.length() != 16) {
+            if (cardNumber.isEmpty()) {
+                System.out.println("Card number is empty. Please enter the card number.");
+            } else {
+                System.out.println("Invalid card number. Card number must be 16 digits.");
+            }
+            // Ask user to enter card number again
+            System.out.print("Enter card number: ");
+            cardNumber = scanner.nextLine();
+        }
+        
+        // Prompt user to enter subscription months
+        System.out.print("Enter subscription months (1, 2, or 3): ");
+        subscriptionMonths = scanner.nextInt();
+        
+        // Calculate subscription cost based on number of months
+        double cost;
+        if (subscriptionMonths == 2) {
+            cost = 1400;
+        } else if (subscriptionMonths == 3) {
+            cost = 2100;
+        } else {
+            cost = 700; // Default cost for one month
+        }
+        
+        // Calculate total cost excluding taxes
+        double totalCost = cost;
+        
+        // Display total cost before tax
+        System.out.println("Total cost before tax: " + totalCost);
+        
+        // Calculate total cost including taxes
+        double totalCostWithTax = totalCost * 1.15;
+        
+        // Display total cost after tax
+        System.out.println("Total cost after tax: " + totalCostWithTax);
+        
+        // Payment success message
+        System.out.println("The payment is done successfully.");
+        
+        // Close scanner
+        scanner.close();
     }
- if (cardNumber.length() != 16) {
-        System.out.println("Card number must be 16 numbers.");
-        return;
-    }
-
-    double totalCost = cost * 1.15;
-           System.out.println("Payment for " + studentName + " with card number " + cardNumber + " is done successfully. Total cost: " + totalCost);
-}
 
 }
  
