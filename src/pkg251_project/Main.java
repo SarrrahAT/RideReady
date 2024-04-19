@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import static pkg251_project.Student.makeSubscription;
 import java.util.Scanner;
+import static pkg251_project.Bus.isBusFull;
 /**
  *
  * @author Sarah Ibrahim
@@ -77,12 +78,18 @@ public class Main {
        //Call method MakePayment
        Payment.makePayment(studentName, cardNumber, Cost);
 
+        // Test isBusFull method - Sarah Altalhi
+        int busCapacity = 50; // Example capacity of the bus
+        int reservedSeats = 50; // Example number of reserved seats
+        
+        // Call the method and check if the bus is full
+        boolean isFull = isBusFull(busCapacity, reservedSeats);
 
-      
+        // Print the result (optional)
+        System.out.println("Is the bus full? " + isFull);
+        
     }    
-        
-        
-        
+          
     }
    
     
