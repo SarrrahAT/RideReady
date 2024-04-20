@@ -43,8 +43,10 @@ public class Main {
         Payment.generateReceipt(monthNumber, cost, startDate, endDate);
         
    
-      // Example usage
+      // Example usage for makeSubscription made by Reham Alsulami
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Please enter your name: ");
+        String StudentName=scanner.nextLine();
         System.out.print("Enter start day: ");
         int startDay = scanner.nextInt();
         System.out.print("Enter start month: ");
@@ -58,8 +60,28 @@ public class Main {
         System.out.print("Enter your choice: ");
         int packageChoice = scanner.nextInt();
         boolean isActive = true; // Assume subscription is active
+        
+        
 
-        Student.makeSubscription(startDay, startMonth, startYear, packageChoice, isActive);
+        Student.makeSubscription(StudentName,startDay, startMonth, startYear, packageChoice, isActive);
+        
+        // Example usage for makeSubscription made by Reham Alsulami
+        int cancelChoice;
+       do {
+            // Prompt the user for cancellation input
+            System.out.print("If you want to cancel the subscription, please press 1. If you don't want to cancel, press 0: ");
+            cancelChoice = scanner.nextInt();
+
+            // Process cancellation choice
+            if (cancelChoice == 1) {
+                // Call cancelSubscription method
+                Student.cancelSubscription(StudentName,startDay, startMonth, startYear, packageChoice);
+            } else if (cancelChoice == 0) {
+                System.out.println("Your reservation has been confirmed successfully!");
+            } else {
+                System.out.println("The number is invalid. Please try again.");
+            }
+        } while (cancelChoice != 0 && cancelChoice != 1);
        
        /// Test the makePayment -sara Alrashdi
       

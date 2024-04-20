@@ -47,8 +47,8 @@ public class Student {
     public void setHomeAddress(String homeAddress) {
         this.homeAddress = homeAddress;
     } 
-    
-     public static boolean makeSubscription(int startDay, int startMonth, int startYear, int packageChoice, boolean isActive) {
+   
+     public static boolean makeSubscription(String studentName,int startDay, int startMonth, int startYear, int packageChoice, boolean isActive) {
         // Get the current date
         LocalDate currentDate = LocalDate.now();
         LocalDate startDate = LocalDate.of(startYear, startMonth, startDay);
@@ -63,24 +63,25 @@ public class Student {
         if (startDate.isAfter(currentDate)) {
             long daysDiff = startDate.toEpochDay() - currentDate.toEpochDay();
             long monthsDiff = daysDiff / 30;
-            System.out.println("Subscription will start in " + daysDiff + " days ");
-            System.out.println("Subscription will become active in " + monthsDiff + " months");
+            System.out.println("Subscription for " + studentName + " will start in " + daysDiff + " days ");
+        System.out.println("Subscription for " + studentName + " will become active in " + monthsDiff + " months");
+    
         } else if (startDate.isEqual(currentDate)) {
-            System.out.println("Subscription starts today!");
+             System.out.println("Subscription for " + studentName + " starts today!");
         } else {
             // Check if the end date is after the current date
             if (endDate.isAfter(currentDate)) {
                 // Display subscription details
                 String startDateString = startDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
                 String endDateString = endDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-                System.out.println("Subscription details:");
+                System.out.println("Subscription details for " + studentName + ":");
                 System.out.println("Start Date: " + startDateString);
                 System.out.println("End Date: " + endDateString);
                 System.out.println("Cost: " + calculatedCost);
                 System.out.println("Active: " + isActive);
                 return isActive;
             } else {
-                System.out.println("Subscription has expired.");
+                System.out.println("Subscription for " + studentName + " has expired.");
                 return false;
             }
         }
@@ -102,4 +103,19 @@ public class Student {
                 return -1; // Invalid package choice
         }
     }
+    
+    public static void cancelSubscription(String studentName,int startDay, int startMonth, int startYear, int packageChoice) {
+         LocalDate currentDate = LocalDate.now();
+         LocalDate startDate = LocalDate.of(startYear, startMonth, startDay);
+         LocalDate endDate = startDate.plusMonths(packageChoice);
+ 
+        // Check if subscription is expired
+        if (endDate.isBefore(currentDate)) {
+            // Subscription is expired
+            System.out.println("Subscription for " + studentName + " has expired. You cannot cancel it.");
+        }
+            else 
+             System.out.println("Subscription for " + studentName + " has been cancelled successfully.");
+    
+}
 }
