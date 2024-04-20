@@ -98,7 +98,31 @@ public class Main {
         
        
         // Close scanner
-        scanner.close(); 
+        scanner.close();
+        
+        
+        // Test methods  checkCapacity _ Sara Alrashdi
+         //  An array containing a set of values for the bus capacity and the number of reserved seats
+    int[][] testData = {
+        {50, 40}, // Capacity value and number of reserved seats 1
+        {30, 20}, // Capacity value and number of reserved seats 2
+        {40, 40}, // Capacity value and number of reserved seats 3
+    };
+    
+    // // Iterate to test the method with each value in the array
+    for (int i = 0; i < testData.length; i++) {
+        int capacity = testData[i][0]; // Capacity value
+        int reservedSeats = testData[i][1]; // The value of the number of reserved seats
+        
+        // Call the method and print the result
+        int availability = Bus.checkCapacity(capacity, reservedSeats);
+        if (availability >= 0) {
+            System.out.println("Test " + (i+1) + ": There are " + availability + " empty seats available.");
+        } else {
+            System.out.println("Test " + (i+1) + ": The bus is full, choose another bus.");
+        }
+    } 
+        
     }
       
 }  

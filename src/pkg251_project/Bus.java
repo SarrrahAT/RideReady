@@ -48,21 +48,21 @@ public class Bus {
         this.isAvailable = isAvailable;
     }
     
-    //methods 
+   
     
     // Method to check if the bus is full based on its capacity and reserved seats
-    public static boolean isBusFull(int capacity, int reservedSeats) {
-        // Check if reserved seats are equal to or more than the capacity of the bus
-        if (reservedSeats >= capacity) {
-            // Print a message indicating the bus is full
-            System.out.println("Bus is full. Select another bus.");
-            // Return true to indicate the bus is full
-            return true;
-        } else {
-            // Return false to indicate there are still places available
-            return false;
-        }
+   //methods  checkCapacity
+public static int checkCapacity(int capacity, int reservedSeats) {
+    // Calculate the number of remaining seats
+    int remainingSeats = capacity - reservedSeats;
     
-    
+    // Check if there are still empty seats available
+    if (remainingSeats > 0) {
+        // If there are empty seats, return the number of remaining seats
+        return remainingSeats;
+    } else {
+        // If the bus is full, return a message to indicate that
+        return -1;
+    }
 }
 }
