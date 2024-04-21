@@ -13,52 +13,50 @@ import java.util.Date;
  * @author yara
  */
 public class Trip {
-    private int tripID;
-    private String startLocation;
+      private int tripID;
+    private String StartLocation;
     private String destinationLocation;
-    private Date tripDate;
-    private Time tripTime;
+    private int tripHour;
+    private int tripDay;
+    private int tripMonth;
     private int availableSeats;
-    private int reservedSeat;
+    private int reservedSeats;
 
+    // Constructor
+    public Trip(int tripID, String source, String destination, int tripHour, int tripDay, int tripMonth, int availableSeats, int reservedSeats) {
+        this.tripID = tripID;
+        this.StartLocation = source;
+        this.destinationLocation = destination;
+        this.tripHour = tripHour;
+        this.tripDay = tripDay;
+        this.tripMonth = tripMonth;
+        this.availableSeats = availableSeats;
+        this.reservedSeats = reservedSeats;
+    }
+
+   // Getters and setters
     public int getTripID() {
         return tripID;
     }
 
-    public void setTripID(int tripID) {
-        this.tripID = tripID;
+    public String getSource() {
+        return StartLocation;
     }
 
-    public String getStartLocation() {
-        return startLocation;
-    }
-
-    public void setStartLocation(String startLocation) {
-        this.startLocation = startLocation;
-    }
-
-    public String getDestinationLocation() {
+    public String getDestination() {
         return destinationLocation;
     }
 
-    public void setDestinationLocation(String destinationLocation) {
-        this.destinationLocation = destinationLocation;
+    public int getTripHour() {
+        return tripHour;
     }
 
-    public Date getTripDate() {
-        return tripDate;
+    public int getTripDay() {
+        return tripDay;
     }
 
-    public void setTripDate(Date tripDate) {
-        this.tripDate = tripDate;
-    }
-
-    public Time getTripTime() {
-        return tripTime;
-    }
-
-    public void setTripTime(Time tripTime) {
-        this.tripTime = tripTime;
+    public int getTripMonth() {
+        return tripMonth;
     }
 
     public int getAvailableSeats() {
@@ -69,12 +67,13 @@ public class Trip {
         this.availableSeats = availableSeats;
     }
 
-    public int getReservedSeat() {
-        return reservedSeat;
+    public int getReservedSeats() {
+        return reservedSeats;
     }
 
-    public void setReservedSeat(int reservedSeat) {
-        this.reservedSeat = reservedSeat;
+    public void setReservedSeats(int reservedSeats) {
+        this.reservedSeats = reservedSeats;
     }
     
+     
 }

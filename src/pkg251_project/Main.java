@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import static pkg251_project.Student.makeSubscription;
 import java.util.Scanner;
-import static pkg251_project.Bus.isBusFull;
+//import static pkg251_project.Bus.isBusFull;
 /**
  *
  * @author Sarah Ibrahim
@@ -122,7 +122,35 @@ public class Main {
             System.out.println("Test " + (i+1) + ": The bus is full, choose another bus.");
         }
     } 
-        
+      
+    // Example usage for reserveTrip made by Reham Alsulami and Raghad Farghal 
+     System.out.println("Enter the trip hour:");
+        int userTripHour = scanner.nextInt();
+
+        System.out.println("Enter the trip day:");
+        int userTripDay = scanner.nextInt();
+
+        System.out.println("Enter the trip month:");
+        int userTripMonth = scanner.nextInt();
+
+        scanner.nextLine(); // Consume newline character
+
+        System.out.println("Enter the source:");
+        String userSource = scanner.nextLine();
+
+        System.out.println("Enter the destination:");
+        String userDestination = scanner.nextLine();
+
+        // Attempt to reserve a trip
+        int reservedTripID = Student.reserveTrip(userTripHour, userTripDay, userTripMonth, userSource, userDestination);
+
+
+        // Check reservation result
+        if (reservedTripID != -1) {
+            System.out.println("Trip with ID " + reservedTripID + " successfully reserved.");
+        } else {
+            System.out.println("Failed to reserve a trip.");
+        }
     }
       
 }  
