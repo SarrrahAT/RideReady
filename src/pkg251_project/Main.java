@@ -6,7 +6,9 @@
 package pkg251_project;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import static pkg251_project.Student.makeSubscription;
 import java.util.Scanner;
 //import static pkg251_project.Bus.isBusFull;
@@ -26,7 +28,21 @@ public class Main {
          System.out.println("Raghad Farghal");
          System.out.println("Reham Alsulami");
          System.out.println("yara alghamdi");
-         
+         // test the tracking bus 
+         List<Bus> busList;
+        busList = new ArrayList<>();
+        busList.add(new Bus(1, 50, "Main St", true));
+        busList.add(new Bus(2, 50, "High St", false));
+
+         try {
+            Bus bus = busList.get(0);
+            System.out.println("Bus ID: " + bus.getBusID() + " Location: " + bus.getCurrentLocation());
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index is out of bounds.");
+        }/**Student student = new Student();
+        String location = student.trackBus(1);
+        System.out.println(location); // Output should be "Main St"
+         */
         // test the verifyPayment -Yara 
         int cardNum1 ;
         cardNum1=123;

@@ -173,4 +173,16 @@ public class Student {
     System.out.println("No trip available on the specified date.");
     return -1; // Return -1 indicating failure
 }
+     
+     
+     // bus tracking method 
+     public String trackBus(int busID) {
+        for (int i = 0; i < busList.size(); i++) {
+            Bus bus = busList.get(i);
+            if (bus.getBusID() == busID) {
+                return bus.getCurrentLocation();
+            }
+        }
+        return "Bus not found";
+    }
 }

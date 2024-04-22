@@ -14,7 +14,12 @@ public class Bus {
     private int capacity;
     private String currentLocation;
     private boolean isAvailable;
-
+public Bus(int busID, int capacity, String currentLocation, boolean isAvailable) {
+        this.busID = busID;
+        this.capacity = capacity;
+        this.currentLocation = currentLocation;
+        this.isAvailable = isAvailable;
+    }
     // getters and setters for each attribute
     public int getBusID() {
         return busID;
