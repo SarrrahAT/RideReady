@@ -10,7 +10,7 @@ package pkg251_project;
  * @author Sarah Ibrahim
  */
 public class Bus {
-     private int busID;
+     private  int busID;
     private int capacity;
     private String currentLocation;
     private boolean isAvailable;
@@ -21,7 +21,7 @@ public Bus(int busID, int capacity, String currentLocation, boolean isAvailable)
         this.isAvailable = isAvailable;
     }
     // getters and setters for each attribute
-    public int getBusID() {
+    public   int getBusID() {
         return busID;
     }
 

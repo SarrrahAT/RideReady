@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.List;
 import static pkg251_project.Student.makeSubscription;
 import java.util.Scanner;
+import static pkg251_project.Trip.viewSchedule;
+
 //import static pkg251_project.Bus.isBusFull;
 /**
  *
@@ -167,7 +169,14 @@ public class Main {
         } else {
             System.out.println("Failed to reserve a trip.");
         }
+        
+        
+        // Test methods viewSchedule
+    
+         viewSchedule("schedule_output.txt"); 
     }
+    
+
       
 }  
 

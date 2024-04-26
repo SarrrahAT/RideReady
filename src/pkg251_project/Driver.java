@@ -11,7 +11,7 @@ package pkg251_project;
  */
 import java.util.Date; 
 public class Driver {
-    private String driverID;
+    private  String driverID;
     private String phoneNum;
     private int salary;
     private Date birthDate;
@@ -30,7 +30,7 @@ public class Driver {
         this.birthDate = birthDate;
     }
 
-    public String getDriverID() {
+    public   String getDriverID() {
         return driverID;
     }
 
