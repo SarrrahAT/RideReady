@@ -57,6 +57,7 @@ public Bus(int busID, int capacity, String currentLocation, boolean isAvailable)
     
     // Method to check if the bus is full based on its capacity and reserved seats
    //methods  checkCapacity
+    // writen by Sara Alrashdi and Sarah Altalhi
 public static int checkCapacity(int capacity, int reservedSeats) {
     // Calculate the number of remaining seats
     int remainingSeats = capacity - reservedSeats;

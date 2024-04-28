@@ -60,6 +60,9 @@ public class Main {
 
         Payment.generateReceipt(monthNumber, cost, startDate, endDate);
         
+        
+  
+        
    
       // Example usage for makeSubscription made by Reham Alsulami
         Scanner scanner = new Scanner(System.in);
@@ -83,6 +86,8 @@ public class Main {
 
         Student.makeSubscription(StudentName,startDay, startMonth, startYear, packageChoice, isActive);
         
+        
+        
         // Example usage for makeSubscription made by Reham Alsulami
         int cancelChoice;
        do {
@@ -101,22 +106,29 @@ public class Main {
             }
         } while (cancelChoice != 0 && cancelChoice != 1);
        
+       
+       
        /// Test the makePayment -sara Alrashdi
       
-            // Prompt user to enter student name
-        System.out.print("Enter student name: ");
-        String studentName = scanner.nextLine();
+        Scanner input = new Scanner(System.in);
         
-        // Prompt user to enter card number
-        System.out.print("Enter card number: ");
-        String cardNumber = scanner.nextLine();
+        // Asking for the student's name
+        System.out.print("Please enter the student's name: ");
+        String studentName = input.nextLine();
         
+        // Asking for the card number
+        System.out.print("Please enter the card number: ");
+        String cardNumber = input.nextLine();
+        
+
         // Call makePayment method with actual inputs
        Payment.makePayment(studentName, cardNumber, 0); // 0 as initial value for subscription months
         
        
         // Close scanner
-        scanner.close();
+        input.close();
+        
+    //////////////////////////////    
         
         
         // Test methods  checkCapacity _ Sara Alrashdi

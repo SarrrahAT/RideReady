@@ -86,6 +86,7 @@ public class Payment {
     }
     //////////////////////////////////////////////////////
    // Method for making payment
+     //writen by Sara Alrashdi
    public static void makePayment(String studentName, String cardNumber, int subscriptionMonths) {
         Scanner scanner = new Scanner(System.in);
         
