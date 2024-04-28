@@ -140,19 +140,37 @@ public class Main {
             System.out.println("Test " + (i+1) + ": The bus is full, choose another bus.");
         }
     } 
+    
+    
+    
       
     // Example usage for reserveTrip made by Reham Alsulami and Raghad Farghal 
      
+        Trip[] trips = new Trip[5];
+
+        trips[0] = new Trip(1, "Al Salamah", "KAU North 1", 10, 4, 9, 10, 5,"Ahmed");
+        trips[1] = new Trip(2, "Al Shati", "KAU North 3", 12, 4, 12, 20, 15,"Mohammed");
+        trips[2] = new Trip(3, "KAU South", "Al Hamra", 15, 4, 15, 30, 25,"Ali");
+        trips[3] = new Trip(4, "KAU Western 1", "Al Rawdah", 18, 4, 18, 40, 35, "Omar");
+        trips[4] = new Trip(5, "KAU Eastern 1", "Al Aziziya", 20, 4, 20, 50, 45,"Adam");
+
 
         // Attempt to reserve a trip
-        Student.reserveTrip2();
-
-
-     
+        Student.reserveTrip2(trips);
         
-        // Test methods viewSchedule
+        
+        
+ Trip[] trips2 = new Trip[5];
+
+        trips[0] = new Trip(1, "Al Salamah", "KAU North 1", 10, 4, 9, 10, "Ahmed");
+        trips[1] = new Trip(2, "Al Shati", "KAU North 3", 12, 4, 12, 20, "Mohammed");
+        trips[2] = new Trip(3, "KAU South", "Al Hamra", 15, 4, 15, 30, "Ali");
+        trips[3] = new Trip(4, "KAU Western 1", "Al Rawdah", 18, 4, 18, 40, "Omar");
+        trips[4] = new Trip(5, "KAU Eastern 1", "Al Aziziya", 20, 4, 20, 50, "Adam");
+
+        Trip.viewSchedule("schedule.txt", trips2);
+      
     
-         viewSchedule("schedule_output.txt"); 
     }
     
 

@@ -12,6 +12,7 @@ package pkg251_project;
 import java.util.Date; 
 public class Driver {
     private  String driverID;
+    private  String driverName;
     private String phoneNum;
     private int salary;
     private Date birthDate;
