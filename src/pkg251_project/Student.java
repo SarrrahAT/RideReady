@@ -8,6 +8,7 @@ package pkg251_project;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Scanner;
 public class Student {
    private String studentName;
     private String phoneNum;
@@ -120,69 +121,78 @@ public class Student {
 }
     
     
-     public static  int reserveTrip(int userTripHour, int userTripDay, int userTripMonth, String userSource, String userDestination) {
-    // Define the array of Trip objects
-    Trip[] trips = new Trip[5];
+      public static  void reserveTrip2( ){
 
-    trips[0] = new Trip(1, "Al Salamah", "KAU North 1", 10, 4, 9, 10, 5);
+          Scanner scanner = new Scanner(System.in);
+      
+ 
+        Trip[] trips = new Trip[5];
+
+        trips[0] = new Trip(1, "Al Salamah", "KAU North 1", 10, 4, 9, 10, 5);
         trips[1] = new Trip(2, "Al Shati", "KAU North 3", 12, 4, 12, 20, 15);
         trips[2] = new Trip(3, "KAU South", "Al Hamra", 15, 4, 15, 30, 25);
         trips[3] = new Trip(4, "KAU Western 1", "Al Rawdah", 18, 4, 18, 40, 35);
         trips[4] = new Trip(5, "KAU Eastern 1", "Al Aziziya", 20, 4, 20, 50, 45);
-        
-    for (Trip trip : trips) {
-        // Extract trip details
-        int tripID = trip.getTripID();
-        int tripHour = trip.getTripHour();
-        int tripDay = trip.getTripDay();
-        int tripMonth = trip.getTripMonth();
-        int availableSeats = trip.getAvailableSeats();
-        int reservedSeat = trip.getReservedSeats();
-        String source = trip.getSource();
-        String destination = trip.getDestination();
 
-        // Check if the tripDate matches the provided day and month
-        if (tripDay == userTripDay && tripMonth == userTripMonth) {
-            // Check if the tripTime matches the provided TripHour
-            if (tripHour == userTripHour) {
-                // Check if source and destination match
-                if (source.equalsIgnoreCase(userSource) && destination.equalsIgnoreCase(userDestination)) {
-                    // Check if there are available seats
+        for (Trip trip : trips) {
+            // Extract trip details
+            int tripID = trip.getTripID();
+            String destination = trip.getDestination();
+            String source = trip.getSource();
+            int tripHour = trip.getTripHour();
+            int tripDay = trip.getTripDay();
+            int tripMonth = trip.getTripMonth();
+
+            System.out.println("Trip number " + tripID + ": from " + source + " to " + destination + " at " + tripHour + " AM on " + tripDay + "/" + tripMonth + "/2024");
+        }
+
+        boolean tripFound = false;
+        int TripID;
+
+        do {
+            System.out.print("Enter trip number (or 'exit' to quit): ");
+            String input = scanner.nextLine();
+
+            if (input.equalsIgnoreCase("exit")) {
+                System.out.println("No reservation confirmed. Exiting...");
+                return; // Exit the program
+            }
+
+            try {
+                TripID = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number or 'exit'.");
+                continue;
+            }
+
+            tripFound = false;
+            for (Trip trip : trips) {
+                if (trip.getTripID() == TripID) {
+                    tripFound = true;
+                    int availableSeats = trip.getAvailableSeats();
+                    int reservedSeat = trip.getReservedSeats();
                     if (availableSeats > 0) {
                         // Reserve a seat
                         trip.setReservedSeats(reservedSeat + 1);
                         trip.setAvailableSeats(availableSeats - 1);
+                        System.out.println("Trip with ID " + TripID + " successfully reserved.");
 
-                        // Return the trip ID
-                        return tripID;
+                        // Display trip details after reservation
+                        System.out.println("Reserved trip details:");
+                        System.out.println("Trip number: " + trip.getTripID());
+                        System.out.println("From: " + trip.getSource() + " to " + trip.getDestination());
+                        System.out.println("Time: " + trip.getTripHour() + " AM on " + trip.getTripDay() + "/" + trip.getTripMonth() + "/2024");
+                        System.out.println("Remaining available seats: " + trip.getAvailableSeats());
                     } else {
-                        System.out.println("No available seats for trip with ID " + tripID + ".");
-                        return -1; // Return -1 indicating failure
+                        System.out.println("No available seats for trip with ID " + TripID + ".");
                     }
-                } else {
-                    System.out.println("Trip with ID " + tripID + " does not match the specified source and destination.");
-                    return -1; // Return -1 indicating failure
+                    break;
                 }
-            } else {
-                System.out.println("Trip with ID " + tripID + " is not available at the specified time.");
-                return -1; // Return -1 indicating failure
             }
-        }
+            if (!tripFound) {
+                System.out.println("There is no trip with this number. Please try again.");
+            }
+        } while (!tripFound);
     }
 
-    System.out.println("No trip available on the specified date.");
-    return -1; // Return -1 indicating failure
-}
-     
-     
-     // bus tracking method 
-     public String trackBus(int busID) {
-        for (int i = 0; i < busList.size(); i++) {
-            Bus bus = busList.get(i);
-            if (bus.getBusID() == busID) {
-                return bus.getCurrentLocation();
-            }
-        }
-        return "Bus not found";
-    }
 }
