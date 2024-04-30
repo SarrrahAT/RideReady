@@ -91,7 +91,7 @@ public class Student {
         return false;
     }
 
-    private static int calculateCost(int packageChoice) {
+    public static int calculateCost(int packageChoice) {
         // Calculate cost based on package choice
         switch (packageChoice) {
             case 1: // Monthly subscription
