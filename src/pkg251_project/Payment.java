@@ -103,7 +103,7 @@ public class Payment {
             cardNumber = scanner.nextLine();
         }
 
-        // Prompt user to enter subscription months
+        // Ask user Enter the chosen package (1, 2, or 3)
         System.out.print("Enter the chosen package (1, 2, or 3): ");
        packageChoice = scanner.nextInt();
 
