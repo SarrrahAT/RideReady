@@ -1,0 +1,3 @@
+TripID  BusID   DriverName          DTripDayTripMonth   Start Location      Destination Location
+1       0       Driver1             1       5           Destination1        Source1             
+2       0       Driver2             2       5           Destination2        Source2             

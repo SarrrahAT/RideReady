@@ -20,6 +20,10 @@ public Bus(int busID, int capacity, String currentLocation, boolean isAvailable)
         this.currentLocation = currentLocation;
         this.isAvailable = isAvailable;
     }
+
+    Bus() {
+  
+    }
     // getters and setters for each attribute
     public   int getBusID() {
         return busID;
