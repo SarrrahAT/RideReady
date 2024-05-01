@@ -46,11 +46,11 @@ public class Main {
         System.out.println(location); // Output should be "Main St"
          */
         // test the verifyPayment -Yara 
-        int cardNum1 ;
-        cardNum1=123;
+        //String cardNum1 ;
+        String cardNum1="123";
          Payment.verifyPayment(cardNum1);
-         int cardNum2 ;
-        cardNum2=1234567891;
+         //int cardNum2 ;
+        String cardNum2="1234567891";
         Payment.verifyPayment(cardNum2);
         // test the generateReceipt -Yara 
         int monthNumber = 4;
