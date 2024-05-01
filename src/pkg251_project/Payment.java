@@ -60,16 +60,16 @@ public class Payment {
         this.subscription = subscription;
     }
     
-    public static boolean verifyPayment(int cardNumber) {
-        String cardNumberStr = Integer.toString(cardNumber);
-    for (int i = 0; i < cardNumberStr.length(); i++) {
-        char digit = cardNumberStr.charAt(i);
+    public static boolean verifyPayment(String cardNumber) {// cardNumber must be string to accept 16 digit
+        //String cardNumberStr = Integer.toString(cardNumber);// no need for this line
+    for (int i = 0; i < cardNumber.length(); i++) {
+        char digit = cardNumber.charAt(i);
         if (!Character.isDigit(digit)) {
             System.out.println("The card number is not true. Please try again.");
             return false;
         }
     }
-    if (cardNumberStr.length() != 10) {
+    if (cardNumber.length() != 16) {// the real card number is 16 digit
         System.out.println("The card number is not true. Please try again.");
         return false;
     }else System.out.println("The card number is  true");
