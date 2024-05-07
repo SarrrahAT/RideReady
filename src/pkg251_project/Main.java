@@ -25,41 +25,10 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        System.out.println("Sarah Altalhi");
-         System.out.println("Sara Alrashdi");
-         System.out.println("Raghad Farghal");
-         System.out.println("Reham Alsulami");
-         System.out.println("yara alghamdi");
-         // test the tracking bus 
-         List<Bus> busList;
-        busList = new ArrayList<>();
-        busList.add(new Bus(1, 50, "Main St", true));
-        busList.add(new Bus(2, 50, "High St", false));
-
-         try {
-            Bus bus = busList.get(0);
-            System.out.println("Bus ID: " + bus.getBusID() + " Location: " + bus.getCurrentLocation());
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Index is out of bounds.");
-        }/**Student student = new Student();
-        String location = student.trackBus(1);
-        System.out.println(location); // Output should be "Main St"
-         */
-        // test the verifyPayment -Yara 
-        //String cardNum1 ;
-        String cardNum1="123";
-         Payment.verifyPayment(cardNum1);
-         //int cardNum2 ;
-        String cardNum2="1234567891";
-        Payment.verifyPayment(cardNum2);
-        // test the generateReceipt -Yara 
-        int monthNumber = 4;
-        double cost = 100.50;
-        Date startDate = new Date();
-        Date endDate = new Date(System.currentTimeMillis() + 86400000); // Adding 1 day to the current date
-
-        Payment.generateReceipt(monthNumber, cost, startDate, endDate);
-        
+      
+     
+       
+      
         
   
         
@@ -112,19 +81,21 @@ public class Main {
       
         Scanner input = new Scanner(System.in);
         
-        // Asking for the student's name
-        System.out.print("Please enter the student's name: ");
-        String studentName = input.nextLine();
-        
-        // Asking for the card number
+      // Asking for the card number
         System.out.print("Please enter the card number: ");
         String cardNumber = input.nextLine();
         
-
+       Payment.verifyPayment(cardNumber);
         // Call makePayment method with actual inputs
-       Payment.makePayment(studentName, cardNumber, 0); // 0 as initial value for subscription months
+       Payment.makePayment(StudentName, cardNumber, packageChoice); 
+         
         
-       
+        Date startDate = new Date();
+        Date endDate = new Date(System.currentTimeMillis() + 86400000); // Adding 1 day to the current date
+        double cost=Student.calculateCost(packageChoice);
+
+        Payment.generateReceipt(packageChoice, cost, startDate, endDate);
+        
         // Close scanner
         input.close();
         
@@ -183,6 +154,21 @@ public class Main {
         Trip.viewSchedule("schedule.txt", trips2);
       
     
+        /*
+         List<Bus> busList;
+        busList = new ArrayList<>();
+        busList.add(new Bus(1, 50, "Main St", true));
+        busList.add(new Bus(2, 50, "High St", false));
+ 
+        
+         try {
+            Bus bus = busList.get(0);
+            System.out.println("Bus ID: " + bus.getBusID() + " Location: " + bus.getCurrentLocation());
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index is out of bounds.");
+        }
+
+*/
     }
     
 

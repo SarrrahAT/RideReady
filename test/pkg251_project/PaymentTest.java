@@ -5,6 +5,9 @@
  */
 package pkg251_project;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -217,20 +220,32 @@ public class PaymentTest {
     }
     
 
-    /**
-     * Test of generateReceipt method, of class Payment.
-     */
+    // done by raghad and sarah Altalhi
     @Test
     public void testGenerateReceipt() {
-        System.out.println("generateReceipt");
-        int monthNumber = 0;
-        double Cost = 0.0;
-        Date startDate = null;
-        Date endDate = null;
-        Payment.generateReceipt(monthNumber, Cost, startDate, endDate);//without we should call method with class.method()
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-        //assertEquals(expected, toString) with this order 
+        // Prepare data for the receipt
+        int monthNumber = 2;
+        double cost = 1400;
+        Date startDate = new Date(); // Current date
+        Date endDate = new Date(startDate.getTime() + (1000 * 60 * 60 * 24 * 7)); // Start date + 7 days
+        
+        // Redirect System.out to capture printed output
+        ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStreamCaptor));
+
+        // Call the method to test
+        Payment.generateReceipt(monthNumber, cost, startDate, endDate);
+
+        // Expected receipt output
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String expectedOutput = "Receipt:\n" +
+                                "Month Number: 5\n" +
+                                "Cost: $50.0\n" +
+                                "Start Date: " + dateFormat.format(startDate) + "\n" +
+                                "End Date: " + dateFormat.format(endDate) + "\n";
+
+        // Check if the output matches the expected receipt
+        assertEquals(expectedOutput, outputStreamCaptor.toString());
     }
 
     /**

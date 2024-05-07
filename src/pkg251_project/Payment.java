@@ -92,32 +92,21 @@ public class Payment {
         Scanner scanner = new Scanner(System.in);
 
         // Check if card number is empty or less than 16 digits
-        while (cardNumber.isEmpty() || cardNumber.length() != 16) {
-            if (cardNumber.isEmpty()) {
-                System.out.println("Card number is empty. Please enter the card number.");
-            } else {
+        while ( cardNumber.length() != 16) {
+           
                 System.out.println("Invalid card number. Card number must be 16 digits.");
-            }
+            
             // Ask user to enter card number again
-            System.out.print("Enter card number: ");
+            System.out.print("Please Enter card number again: ");
             cardNumber = scanner.nextLine();
         }
 
-        // Ask user Enter the chosen package (1, 2, or 3)
-        System.out.print("Enter the chosen package (1, 2, or 3): ");
-       packageChoice = scanner.nextInt();
-
-        // Calculate subscription cost based on package choice
-        double cost = Student.calculateCost(packageChoice);
-
-        // Calculate total cost excluding taxes
-        double totalCost = cost;
-
+       double cost= Student.calculateCost(packageChoice);
         // Display total cost before tax
-        System.out.println("Total cost before tax: " + totalCost);
+        System.out.println("Total cost before tax: " + cost);
 
         // Calculate total cost including taxes
-        double totalCostWithTax = totalCost * 1.15;
+        double totalCostWithTax = cost * 1.15;
 
         // Display total cost after tax
         System.out.println("Total cost after tax: " + totalCostWithTax);
