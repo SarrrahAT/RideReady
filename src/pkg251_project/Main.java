@@ -5,13 +5,11 @@
  */
 package pkg251_project;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+
 import java.util.Date;
-import java.util.List;
-import static pkg251_project.Student.makeSubscription;
+
 import java.util.Scanner;
-import static pkg251_project.Trip.viewSchedule;
+
 
 //import static pkg251_project.Bus.isBusFull;
 /**
