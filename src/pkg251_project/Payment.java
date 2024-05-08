@@ -59,7 +59,7 @@ public class Payment {
     public void setSubscription(Subscription subscription) {
         this.subscription = subscription;
     }
-    
+    // Yara
     public static boolean verifyPayment(String cardNumber) {// cardNumber must be string to accept 16 digit
         //String cardNumberStr = Integer.toString(cardNumber);// no need for this line
     for (int i = 0; i < cardNumber.length(); i++) {
@@ -75,14 +75,16 @@ public class Payment {
     }else System.out.println("The card number is  true");
     return true;
     }
-    
-    public static void generateReceipt(int monthNumber, double Cost, Date startDate, Date endDate) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    //public static void generateReceipt(int monthNumber, int Cost, Date startDate, Date endDate)
+    public static void generateReceipt(int monthNumber, int Cost, int startDate) {
+        //SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         System.out.println("Receipt:");
         System.out.println("Month Number: " + monthNumber);
         System.out.println("Cost: $" + Cost);
-        System.out.println("Start Date: " + dateFormat.format(startDate));
-        System.out.println("End Date: " + dateFormat.format(endDate));
+        System.out.println("Start Date: " + startDate);
+        
+        //System.out.println("Start Date: " + dateFormat.format(startDate));
+       // System.out.println("End Date: " + dateFormat.format(endDate));
     }
     //////////////////////////////////////////////////////
    // Method for making payment

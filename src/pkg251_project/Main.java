@@ -6,7 +6,9 @@
 package pkg251_project;
 
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import java.util.Scanner;
 
@@ -17,17 +19,53 @@ import java.util.Scanner;
  * @author Sarah Ibrahim
  */
 public class Main {
+    private static Scanner scanner = new Scanner(System.in);
+    private static Payment paymentSystem = new Payment();
+    private static Subscription subscriptionSystem = new Subscription();
+    private static Bus busSystem = new Bus();
+    private static Trip tripSystem = new Trip(1, "Start", "Destination", 10, 10, 10, 10, "2024-05-01"); // Example parameters
+    private static Driver driverSystem = new Driver("John Doe", "VehicleType", 12345, new Date()); // Example parameters
+    private static Student student = new Student ();
+    /**
+    /**
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-      
-     
-       
-      
-        
+         int option;
+        do {
+            System.out.println("Welcome to RiedReady Application");
+            System.out.println("1 - Bus Subscription Payments");
+            System.out.println("2 - Seat Reservation");
+            System.out.println("3 - Tracking the Bus");
+            System.out.println("4 - Manipulate Trip Schedule");
+            System.out.println("5 - Quit");
+            System.out.print("Enter your choice: ");
+            option = scanner.nextInt();
+
+            switch (option) {
+                case 1:
+                    handleSubscription();
+                    break;
+                case 2:
+                    handleReservation();
+                    break;
+                case 3:
+                    handleTracking();
+                    break;
+                case 4:
+                    handleSchedule();
+                    break;
+                case 5:
+                    System.out.println("Thank you for using RiedReady application. Have a nice day!");
+                    break;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
+        } while (option != 5);
+                
   
         
    
@@ -168,17 +206,71 @@ public class Main {
 
 */
     }
-    
 
-      
-}  
-
-    
+    private static void handleSubscription() {
+        System.out.println("1 - Make Subscription");
+        System.out.println("2 - Cancel Subscription");
+        System.out.println("Enter your choice: ");
+        int subOption = scanner.nextInt();
+        System.out.println("pleas enter youre name :  ");
+            String Name = scanner.next();
+            System.out.println("pleas enter the start day  ");
+            int Day = scanner.nextInt();
+            System.out.println("pleas enter the start month  ");
+            int Month = scanner.nextInt();
+            System.out.println("pleas enter the start year  ");
+            int year = scanner.nextInt(); 
+        if (subOption == 1){
+            System.out.println("these is the packages ");
+            System.out.println("1 - one month ");
+            System.out.println("2 - two month ");
+            System.out.println("3 - three month");
+            System.out.println("Enter your choice: ");
+            int packages  = scanner.nextInt();
           
-    
-   
-    
-    
-    
-    
+            boolean makeSubscription = Student.makeSubscription(Name,Day,Month,year,packages,true);
+            int cost = student.calculateCost( packages );
+            System.out.println("pleas enter ure cridet card number ");
+            String card = scanner.next();
+            if(paymentSystem.verifyPayment(card)){
+            paymentSystem.generateReceipt(Month ,cost,Day );
+            } 
+           
+        } else if (subOption == 2){
+            System.out.println("Enter your packege number : ");
+            int packages  = scanner.nextInt();
+        student.cancelSubscription(Name,Day,Month,year,packages);}
+        else {
+            System.out.println("Invalid option.");}
+            
+           }
 
+    private static void handleReservation() {
+        /*System.out.println("Enter the bus ID for the trip: ");
+        int busID = scanner.nextInt();
+        if (tripSystem.checkCapacity(busID)) {
+            System.out.println("Enter the seat number to reserve: ");
+            int seatNumber = scanner.nextInt();
+            tripSystem.reserveTrip2(busID, seatNumber);
+        } else {
+            System.out.println("No seats available or invalid bus ID.");
+        }*/
+    }
+
+    private static void handleTracking() {
+         List<Bus> busList;
+        busList = new ArrayList<>();
+        busList.add(new Bus(1, 50, "Main St", true));
+        busList.add(new Bus(2, 50, "High St", false));
+        System.out.println("Enter the bus ID to track: ");
+        int busID = scanner.nextInt();
+       String location=student.trackBus(busID);
+        
+        System.out.println("Current location of the bus: " + location);
+    }
+
+    private static void handleSchedule() {
+       // driverSystem.viewSchedule();
+    }
+    
+}

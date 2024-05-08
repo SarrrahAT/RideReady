@@ -9,14 +9,21 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Scanner;
-public class Student {
+public  class Student {
    private String studentName;
     private String phoneNum;
     private String email;
     private String homeAddress;
     private String username;
     private String password;
-
+     public Student(String studentName, String phoneNum, String email, String homeAddress, String username, String password) {
+        this.studentName = studentName;
+        this.phoneNum = phoneNum;
+        this.email = email;
+        this.homeAddress = homeAddress;
+        this.username = username;
+        this.password = password;
+    }
     public String getStudentName() {
         return studentName;
     }
@@ -51,6 +58,7 @@ public class Student {
    
      public static boolean makeSubscription(String studentName,int startDay, int startMonth, int startYear, int packageChoice, boolean isActive) {
         // Get the current date
+        
         LocalDate currentDate = LocalDate.now();
         LocalDate startDate = LocalDate.of(startYear, startMonth, startDay);
 
@@ -187,5 +195,13 @@ public class Student {
             }
         } while (!tripFound);
     }
-
+public String trackBus(int busID) {
+        for (int i = 0; i < busList.size(); i++) {
+            Bus bus = busList.get(i);
+            if (bus.getBusID() == busID) {
+                return bus.getCurrentLocation();
+            }
+        }
+        return "Bus not found";
+    }
 }
