@@ -25,7 +25,7 @@ public class Main {
     private static Bus busSystem = new Bus();
     private static Trip tripSystem = new Trip(1, "Start", "Destination", 10, 10, 10, 10, "2024-05-01"); // Example parameters
     private static Driver driverSystem = new Driver("John Doe", "VehicleType", 12345, new Date()); // Example parameters
-    private static Student student = new Student ();
+   // private static Student student = new Student ();
     /**
     /**
 
@@ -38,7 +38,7 @@ public class Main {
         do {
             System.out.println("Welcome to RiedReady Application");
             System.out.println("1 - Bus Subscription Payments");
-            System.out.println("2 - Seat Reservation");
+            System.out.println("2 - Trip Reservation");
             System.out.println("3 - Tracking the Bus");
             System.out.println("4 - Manipulate Trip Schedule");
             System.out.println("5 - Quit");
@@ -126,11 +126,11 @@ public class Main {
        Payment.makePayment(StudentName, cardNumber, packageChoice); 
          
         
-        Date startDate = new Date();
-        Date endDate = new Date(System.currentTimeMillis() + 86400000); // Adding 1 day to the current date
+       // Date startDate = new Date();
+       // Date endDate = new Date(System.currentTimeMillis() + 86400000); // Adding 1 day to the current date
         double cost=Student.calculateCost(packageChoice);
 
-        Payment.generateReceipt(packageChoice, cost, startDate, endDate);
+        Payment.generateReceipt(packageChoice, (int) cost, startDay );
         
         // Close scanner
         input.close();
@@ -229,7 +229,7 @@ public class Main {
             int packages  = scanner.nextInt();
           
             boolean makeSubscription = Student.makeSubscription(Name,Day,Month,year,packages,true);
-            int cost = student.calculateCost( packages );
+            int cost = Student.calculateCost( packages );
             System.out.println("pleas enter ure cridet card number ");
             String card = scanner.next();
             if(paymentSystem.verifyPayment(card)){
@@ -239,7 +239,7 @@ public class Main {
         } else if (subOption == 2){
             System.out.println("Enter your packege number : ");
             int packages  = scanner.nextInt();
-        student.cancelSubscription(Name,Day,Month,year,packages);}
+        Student.cancelSubscription(Name,Day,Month,year,packages);}
         else {
             System.out.println("Invalid option.");}
             
@@ -264,7 +264,7 @@ public class Main {
         busList.add(new Bus(2, 50, "High St", false));
         System.out.println("Enter the bus ID to track: ");
         int busID = scanner.nextInt();
-       String location=student.trackBus(busID);
+       String location=Student.trackBus(busID);
         
         System.out.println("Current location of the bus: " + location);
     }

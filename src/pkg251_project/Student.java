@@ -195,7 +195,7 @@ public  class Student {
             }
         } while (!tripFound);
     }
-public String trackBus(int busID) {
+public static  String trackBus(int busID) {
         for (int i = 0; i < busList.size(); i++) {
             Bus bus = busList.get(i);
             if (bus.getBusID() == busID) {

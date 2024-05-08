@@ -76,7 +76,7 @@ public class Payment {
     return true;
     }
     //public static void generateReceipt(int monthNumber, int Cost, Date startDate, Date endDate)
-    public static void generateReceipt(int monthNumber, int Cost, int startDate) {
+    public static void generateReceipt(int monthNumber, double  Cost, int startDate) {
         //SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         System.out.println("Receipt:");
         System.out.println("Month Number: " + monthNumber);
