@@ -39,7 +39,7 @@ public class StudentTest {
 
     /**
      * Test of getStudentName method, of class Student.
-     */
+     
     @Test
     public void testGetStudentName() {
         System.out.println("getStudentName");
@@ -50,10 +50,10 @@ public class StudentTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
+ */
     /**
      * Test of setStudentName method, of class Student.
-     */
+     
     @Test
     public void testSetStudentName() {
         System.out.println("setStudentName");
@@ -66,7 +66,7 @@ public class StudentTest {
 
     /**
      * Test of getPhoneNum method, of class Student.
-     */
+     
     @Test
     public void testGetPhoneNum() {
         System.out.println("getPhoneNum");
@@ -80,7 +80,7 @@ public class StudentTest {
 
     /**
      * Test of setPhoneNum method, of class Student.
-     */
+     
     @Test
     public void testSetPhoneNum() {
         System.out.println("setPhoneNum");
@@ -93,7 +93,7 @@ public class StudentTest {
 
     /**
      * Test of getEmail method, of class Student.
-     */
+     
     @Test
     public void testGetEmail() {
         System.out.println("getEmail");
@@ -107,7 +107,7 @@ public class StudentTest {
 
     /**
      * Test of setEmail method, of class Student.
-     */
+     
     @Test
     public void testSetEmail() {
         System.out.println("setEmail");
@@ -120,7 +120,7 @@ public class StudentTest {
 
     /**
      * Test of getHomeAddress method, of class Student.
-     */
+     
     @Test
     public void testGetHomeAddress() {
         System.out.println("getHomeAddress");
@@ -132,9 +132,9 @@ public class StudentTest {
         fail("The test case is a prototype.");
     }
 
-    /**
+   
      * Test of setHomeAddress method, of class Student.
-     */
+     
     @Test
     public void testSetHomeAddress() {
         System.out.println("setHomeAddress");
@@ -144,6 +144,7 @@ public class StudentTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+    * */
  /**
      * Test of makeSubscription method, of class sub.
      */

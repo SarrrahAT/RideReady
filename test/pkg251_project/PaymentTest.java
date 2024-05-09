@@ -226,23 +226,23 @@ public class PaymentTest {
         // Prepare data for the receipt
         int monthNumber = 2;
         double cost = 1400;
-        Date startDate = new Date(); // Current date
-        Date endDate = new Date(startDate.getTime() + (1000 * 60 * 60 * 24 * 7)); // Start date + 7 days
+        int startDate = 1;
+        
         
         // Redirect System.out to capture printed output
         ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
 
         // Call the method to test
-        Payment.generateReceipt(monthNumber, cost, startDate, endDate);
+        Payment.generateReceipt(monthNumber, cost, startDate);
 
         // Expected receipt output
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String expectedOutput = "Receipt:\n" +
                                 "Month Number: 5\n" +
                                 "Cost: $50.0\n" +
-                                "Start Date: " + dateFormat.format(startDate) + "\n" +
-                                "End Date: " + dateFormat.format(endDate) + "\n";
+                                "Start Date: " + dateFormat.format(startDate) + "\n" ;
+                                
 
         // Check if the output matches the expected receipt
         assertEquals(expectedOutput, outputStreamCaptor.toString());
