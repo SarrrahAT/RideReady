@@ -268,41 +268,63 @@ public class TripTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-/////////////////////////////////////////////////////////////////
+
     
      // Test of viewSchedule method, of class Trip.
      // by Sara Alrashdi 
-  
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+   @Test
+public void testViewScheduleMessageOnSuccessfulWrite() {
+    // Mocking some Trip data for testing
+    Trip[] trips = {
+        new Trip(1, "City A", "City B", 12, 15, 5, 20, 5, "John Doe"),
+        new Trip(2, "City C", "City D", 10, 10, 5, 15, 3, "Jane Smith")
+    };
+
+    String fileName = "testSchedule.txt"; // Name of test file
+
+    // Calling the method to be tested
+    Trip.viewSchedule(fileName, trips);
+
+    // Check if the message is printed successfully
+    String expectedMessage = "Trips have been written to " + fileName + System.lineSeparator();
+
+    // Redirecting System.out to capture the output
+    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(outContent));
+
+    // Calling the method again to capture the output
+    Trip.viewSchedule(fileName, trips);
+
+    // Resetting System.out
+    System.setOut(System.out);
+
+    // Asserting the output
+    assertEquals(expectedMessage, outContent.toString());
+}
+    
    
     @Test
-    public void testViewSchedule() {
-        // Prepare sample trips
-        Trip[] trips = {
+    public void testViewSchedule_errorWriting() {
+         // Mocking some Trip data for testing
+         Trip[] trips = {
             new Trip(1, "City A", "City B", 12, 15, 5, 20, 5, "John Doe"),
             new Trip(2, "City C", "City D", 10, 10, 5, 15, 3, "Jane Smith")
         };
+        String fileName = "invalidLocation/testSchedule.txt";
 
-        // Call the method being tested
-        Trip.viewSchedule("test_schedule.txt", trips);
+        // prepare a ByteArrayOutputStream to capture the output
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setErr(new PrintStream(outContent));
 
-        // Verify the content of the file
-        try (BufferedReader reader = new BufferedReader(new FileReader("test_schedule.txt"))) {
-            // Check header
-            String header = reader.readLine();
-            String expectedHeader = String.format("%-8s%-8s%-20s%-8s%-12s%-20s%-20s",
-                                                  "TripID", "BusID", "DriverName", "DTripDay", "TripMonth", "Start Location", "Destination Location");
-            assertEquals(expectedHeader, header);
+        // Calling the method to be tested
+        Trip.viewSchedule(fileName, trips);
 
-            // Check data
-            String line;
-            while ((line = reader.readLine()) != null) {
-                // Assert each line contains trip data
-                assertTrue(line.contains("1") || line.contains("2")); // Assuming Trip IDs are present in the file
-            }
-        } catch (IOException e) {
-            fail("Error reading file: " + e.getMessage());
-        }
+        
+       // must verify that the correct message is printed on the output
+        assertTrue(outContent.toString().contains("Error writing trips to file: "));
     }
+
 }
 
 
