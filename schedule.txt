@@ -1,4 +1,6 @@
 TripID  BusID   DriverName          DTripDayTripMonth   Start Location      Destination Location
-1       0       Driver 1            1       5           Source 1            Destination 1       
-2       0       Driver 2            2       5           Source 2            Destination 2       
-3       0       Driver 3            3       5           Source 3            Destination 3       
+1       10      Ahmed               4       9           KAU North 1         Al Salamah          
+2       20      Mohammed            4       12          KAU North 3         Al Shati            
+3       30      Ali                 4       15          Al Hamra            KAU South           
+4       40      Omar                4       18          Al Rawdah           KAU Western 1       
+5       50      Adam                4       20          Al Aziziya          KAU Eastern 1       
