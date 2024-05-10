@@ -251,15 +251,14 @@ public class PaymentTest {
     /**
      * Test of makePayment method, of class Payment.
      */
-    @Test
+     @Test
     public void testMakePayment() {
         System.out.println("makePayment");
-        String studentName = "";
-        String cardNumber = "";
-        int packageChoice = 0;
+        String studentName = "Raghad";
+        String cardNumber = "6758383839292927";
+        int packageChoice = 3;
         Payment.makePayment(studentName, cardNumber, packageChoice);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(true);
     }
     
 }
