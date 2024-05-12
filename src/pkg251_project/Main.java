@@ -122,10 +122,7 @@ public class Main {
 
     private static void handleTracking() {
         // the method trackBus made by yara 
-         List<Bus> busList;
-        busList = new ArrayList<>();
-        busList.add(new Bus(1, 50, "Main St", true));
-        busList.add(new Bus(2, 50, "High St", false));
+         
         System.out.println("Enter the bus ID to track: ");
         int busID = scanner.nextInt();
        String location=Student.trackBus(busID);

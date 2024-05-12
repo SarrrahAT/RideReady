@@ -7,8 +7,11 @@
 package pkg251_project;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
+
 public  class Student {
    private String studentName;
     private String phoneNum;
@@ -16,6 +19,7 @@ public  class Student {
     private String homeAddress;
     private String username;
     private String password;
+    private static List<Bus> busList = new ArrayList<>();
      public Student(String studentName, String phoneNum, String email, String homeAddress, String username, String password) {
         this.studentName = studentName;
         this.phoneNum = phoneNum;
@@ -195,13 +199,23 @@ public  class Student {
             }
         } while (!tripFound);
     }
-public static  String trackBus(int busID) {
-        for (int i = 0; i < busList.size(); i++) {
-            Bus bus = busList.get(i);
+     
+      
+      public static  String trackBus(int busID) {
+          List<Bus> busList;
+        busList = new ArrayList<>();
+        busList.add(new Bus(1, 50, "KAU North 1", true));
+        busList.add(new Bus(2, 50, "KAU North 3", true));
+        busList.add(new Bus(2, 50, "Al Hamra", true));
+        busList.add(new Bus(2, 50, "Al Rawdah", true));
+        busList.add(new Bus(2, 50, "Al Aziziya", false));
+        for (Bus bus : busList ) {
+            
             if (bus.getBusID() == busID) {
                 return bus.getCurrentLocation();
             }
         }
         return "Bus not found";
     }
+
 }
