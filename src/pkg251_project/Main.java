@@ -34,7 +34,7 @@ public class Main {
             System.out.println("1 - Bus Subscription Payments");
             System.out.println("2 - Trip Reservation");
             System.out.println("3 - Tracking the Bus");
-            System.out.println("4 - Manipulate Trip Schedule");
+            System.out.println("4 - View Trip Schedule");
             System.out.println("5 - Quit");
             System.out.print("Enter your choice: ");
             option = scanner.nextInt();
