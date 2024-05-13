@@ -82,7 +82,7 @@ public class Main {
         System.out.print("Enter your choice: ");
             int packages  = scanner.nextInt();
           
-            boolean makeSubscription = Student.makeSubscription(Name,Day,Month,year,packages,true);
+            Student.makeSubscription(Name,Day,Month,year,packages,true);
             int cost = Student.calculateCost( packages );
             /// makePayment -sara Alrashdi
             System.out.println("pleas enter your cridet card number ");
