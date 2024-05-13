@@ -75,16 +75,15 @@ public class Payment {
     }else System.out.println("The card number is  true");
     return true;
     }
-    //public static void generateReceipt(int monthNumber, int Cost, Date startDate, Date endDate)
-    public static void generateReceipt(int monthNumber, double  Cost, int startDate) {
-        //SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    
+    public static void generateReceipt( double  Cost, int startDate,int monthNumber, int year) {
+        
         System.out.println("Receipt:");
         System.out.println("Month Number: " + monthNumber);
         System.out.println("Cost: $" + Cost);
-        System.out.println("Start Date: " + startDate);
+        System.out.println("Start Date: " + startDate+"/"+monthNumber+"/"+year);
         
-        //System.out.println("Start Date: " + dateFormat.format(startDate));
-       // System.out.println("End Date: " + dateFormat.format(endDate));
+        
     }
     //////////////////////////////////////////////////////
    // Method for making payment

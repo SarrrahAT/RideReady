@@ -12,16 +12,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+
 import java.io.PrintStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 
@@ -52,7 +46,7 @@ public class TripTest {
 
     /**
      * Test of getDriver method, of class Trip.
-     */
+     
     @Test
     public void testGetDriver() {
         System.out.println("getDriver");
@@ -66,7 +60,7 @@ public class TripTest {
 
     /**
      * Test of setDriver method, of class Trip.
-     */
+   
     @Test
     public void testSetDriver() {
         System.out.println("setDriver");
@@ -79,7 +73,7 @@ public class TripTest {
 
     /**
      * Test of getTripID method, of class Trip.
-     */
+   
     @Test
     public void testGetTripID() {
         System.out.println("getTripID");
@@ -93,7 +87,7 @@ public class TripTest {
 
     /**
      * Test of getSource method, of class Trip.
-     */
+    
     @Test
     public void testGetSource() {
         System.out.println("getSource");
@@ -107,7 +101,7 @@ public class TripTest {
 
     /**
      * Test of getDestination method, of class Trip.
-     */
+    
     @Test
     public void testGetDestination() {
         System.out.println("getDestination");
@@ -121,7 +115,7 @@ public class TripTest {
 
     /**
      * Test of getTripHour method, of class Trip.
-     */
+     
     @Test
     public void testGetTripHour() {
         System.out.println("getTripHour");
@@ -135,7 +129,7 @@ public class TripTest {
 
     /**
      * Test of getTripDay method, of class Trip.
-     */
+    
     @Test
     public void testGetTripDay() {
         System.out.println("getTripDay");
@@ -149,7 +143,7 @@ public class TripTest {
 
     /**
      * Test of getTripMonth method, of class Trip.
-     */
+    
     @Test
     public void testGetTripMonth() {
         System.out.println("getTripMonth");
@@ -163,7 +157,7 @@ public class TripTest {
 
     /**
      * Test of getAvailableSeats method, of class Trip.
-     */
+    
     @Test
     public void testGetAvailableSeats() {
         System.out.println("getAvailableSeats");
@@ -177,7 +171,7 @@ public class TripTest {
 
     /**
      * Test of setAvailableSeats method, of class Trip.
-     */
+     
     @Test
     public void testSetAvailableSeats() {
         System.out.println("setAvailableSeats");
@@ -190,7 +184,7 @@ public class TripTest {
 
     /**
      * Test of getReservedSeats method, of class Trip.
-     */
+     
     @Test
     public void testGetReservedSeats() {
         System.out.println("getReservedSeats");
@@ -204,7 +198,7 @@ public class TripTest {
 
     /**
      * Test of setReservedSeats method, of class Trip.
-     */
+     
     @Test
     public void testSetReservedSeats() {
         System.out.println("setReservedSeats");
@@ -217,7 +211,7 @@ public class TripTest {
 
     /**
      * Test of getDriverName method, of class Trip.
-     */
+     
     @Test
     public void testGetDriverName() {
         System.out.println("getDriverName");
@@ -231,7 +225,7 @@ public class TripTest {
 
     /**
      * Test of setDriverName method, of class Trip.
-     */
+     
     @Test
     public void testSetDriverName() {
         System.out.println("setDriverName");
@@ -244,7 +238,7 @@ public class TripTest {
 
     /**
      * Test of getBusID method, of class Trip.
-     */
+     
     @Test
     public void testGetBusID() {
         System.out.println("getBusID");
@@ -258,7 +252,7 @@ public class TripTest {
 
     /**
      * Test of setBusID method, of class Trip.
-     */
+     
     @Test
     public void testSetBusID() {
         System.out.println("setBusID");
@@ -269,17 +263,20 @@ public class TripTest {
         fail("The test case is a prototype.");
     }
 
-    
+    */
      // Test of viewSchedule method, of class Trip.
      // by Sara Alrashdi 
   //////////////////////////////////////////////////////////////////////////////////////////////////
    @Test
 public void testViewScheduleMessageOnSuccessfulWrite() {
     // Mocking some Trip data for testing
-    Trip[] trips = {
-        new Trip(1, "City A", "City B", 12, 15, 5, 20, 5, "John Doe"),
-        new Trip(2, "City C", "City D", 10, 10, 5, 15, 3, "Jane Smith")
-    };
+    Trip[] trips = new Trip[5];
+
+        trips[0] = new Trip(1, "Al Salamah", "KAU North 1", 10, 4, 9, 10, "Ahmed");
+        trips[1] = new Trip(2, "Al Shati", "KAU North 3", 12, 4, 12, 20, "Mohammed");
+        trips[2] = new Trip(3, "KAU South", "Al Hamra", 15, 4, 15, 30, "Ali");
+        trips[3] = new Trip(4, "KAU Western 1", "Al Rawdah", 18, 4, 18, 40, "Omar");
+        trips[4] = new Trip(5, "KAU Eastern 1", "Al Aziziya", 20, 4, 20, 50, "Adam");
 
     String fileName = "testSchedule.txt"; // Name of test file
 
@@ -307,10 +304,13 @@ public void testViewScheduleMessageOnSuccessfulWrite() {
     @Test
     public void testViewSchedule_errorWriting() {
          // Mocking some Trip data for testing
-         Trip[] trips = {
-            new Trip(1, "City A", "City B", 12, 15, 5, 20, 5, "John Doe"),
-            new Trip(2, "City C", "City D", 10, 10, 5, 15, 3, "Jane Smith")
-        };
+         Trip[] trips = new Trip[5];
+
+        trips[0] = new Trip(1, "Al Salamah", "KAU North 1", 10, 4, 9, 10, "Ahmed");
+        trips[1] = new Trip(2, "Al Shati", "KAU North 3", 12, 4, 12, 20, "Mohammed");
+        trips[2] = new Trip(3, "KAU South", "Al Hamra", 15, 4, 15, 30, "Ali");
+        trips[3] = new Trip(4, "KAU Western 1", "Al Rawdah", 18, 4, 18, 40, "Omar");
+        trips[4] = new Trip(5, "KAU Eastern 1", "Al Aziziya", 20, 4, 20, 50, "Adam");
         String fileName = "invalidLocation/testSchedule.txt";
 
         // prepare a ByteArrayOutputStream to capture the output

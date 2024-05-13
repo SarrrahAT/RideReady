@@ -5,6 +5,9 @@
  */
 package pkg251_project;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,12 +15,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+
 /**
  *
  * @author User
  */
 public class StudentTest {
-    
+     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+    private final ByteArrayInputStream inContent = null;
     public StudentTest() {
     }
     
@@ -216,17 +222,74 @@ public class StudentTest {
     /**
      * Test of reserveTrip2 method, of class sub.
      */
-    @Test
-    public void testReserveTrip2() {
-        System.out.println("reserveTrip2");
-        Trip[] trips = new Trip[5];
+  
+   
 
-        trips[0] = new Trip(1, "Al Salamah", "KAU North 1", 10, 4, 9, 10, 5,"Ahmed");
-        trips[1] = new Trip(2, "Al Shati", "KAU North 3", 12, 4, 12, 20, 15,"Mohammed");
-        trips[2] = new Trip(3, "KAU South", "Al Hamra", 15, 4, 15, 30, 25,"Ali");
-        trips[3] = new Trip(4, "KAU Western 1", "Al Rawdah", 18, 4, 18, 40, 35, "Omar");
-        trips[4] = new Trip(5, "KAU Eastern 1", "Al Aziziya", 20, 4, 20, 50, 45,"Adam");
+    @Before
+    public void setUpStreams() {
+        // Redirects the standard output stream (System.out) to a custom ByteArrayOutputStream.
+    // This allows the test to capture all output data that would normally be printed to the console.
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @After
+    public void restoreStreams() {
+         // Restores the standard output stream (System.out) to its original state.
+    // This ensures that output operations return to normal after each test is completed,
+        System.setOut(originalOut);
+        if (inContent != null) {
+            System.setIn(System.in);
+        }
+    }
+
+    @Test
+    public void testExitWithoutReservation() {
+        String input = "exit";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        Trip[] trips = {
+            new Trip(1, "Al Salamah", "KAU North 1", 10, 4, 9, 10, 5, "Ahmed"),
+            new Trip(2, "Al Shati", "KAU North 3", 12, 4, 12, 20, 15, "Mohammed"),
+            new Trip(3, "KAU South", "Al Hamra", 15, 4, 15, 30, 25, "Ali"),
+            new Trip(4, "KAU Western 1", "Al Rawdah", 18, 4, 18, 40, 35, "Omar"),
+            new Trip(5, "KAU Eastern 1", "Al Aziziya", 20, 4, 20, 50, 45, "Adam")
+        };
+
         Student.reserveTrip2(trips);
-        
+        assertTrue(outContent.toString().contains("No reservation confirmed. Exiting..."));
+    }
+
+    @Test
+    public void testValidTripReservation() {
+        String input = "3\nexit"; // Simulate entering '3' for trip ID, then 'exit'
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        Trip[] trips = {
+            new Trip(1, "Al Salamah", "KAU North 1", 10, 4, 9, 10, 5, "Ahmed"),
+            new Trip(2, "Al Shati", "KAU North 3", 12, 4, 12, 20, 15, "Mohammed"),
+            new Trip(3, "KAU South", "Al Hamra", 15, 4, 15, 30, 25, "Ali"),
+            new Trip(4, "KAU Western 1", "Al Rawdah", 18, 4, 18, 40, 35, "Omar"),
+            new Trip(5, "KAU Eastern 1", "Al Aziziya", 20, 4, 20, 50, 45, "Adam")
+        };
+
+        Student.reserveTrip2(trips);
+        assertTrue(outContent.toString().contains("Trip with ID 3 successfully reserved."));
+    }
+
+    @Test
+    public void testInvalidTripId() {
+        String input = "999\nexit"; // Simulate entering an invalid trip ID, then 'exit'
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        Trip[] trips = {
+            new Trip(1, "Al Salamah", "KAU North 1", 10, 4, 9, 10, 5, "Ahmed"),
+            new Trip(2, "Al Shati", "KAU North 3", 12, 4, 12, 20, 15, "Mohammed"),
+            new Trip(3, "KAU South", "Al Hamra", 15, 4, 15, 30, 25, "Ali"),
+            new Trip(4, "KAU Western 1", "Al Rawdah", 18, 4, 18, 40, 35, "Omar"),
+            new Trip(5, "KAU Eastern 1", "Al Aziziya", 20, 4, 20, 50, 45, "Adam")
+        };
+
+        Student.reserveTrip2(trips);
+        assertTrue(outContent.toString().contains("There is no trip with this number"));
     }
 }

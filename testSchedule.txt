@@ -1,3 +1,6 @@
 TripID  BusID   DriverName          DTripDayTripMonth   Start Location      Destination Location
-1       0       John Doe            15      5           City A              City B              
-2       0       Jane Smith          10      5           City C              City D              
+1       10      Ahmed               4       9           KAU North 1         Al Salamah          
+2       20      Mohammed            4       12          KAU North 3         Al Shati            
+3       30      Ali                 4       15          Al Hamra            KAU South           
+4       40      Omar                4       18          Al Rawdah           KAU Western 1       
+5       50      Adam                4       20          Al Aziziya          KAU Eastern 1       

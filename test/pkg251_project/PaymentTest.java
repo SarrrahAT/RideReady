@@ -43,7 +43,7 @@ public class PaymentTest {
 
     /**
      * Test of getCost method, of class Payment.
-     */
+     
     @Test
     public void testGetCost() {
         System.out.println("getCost");
@@ -57,7 +57,7 @@ public class PaymentTest {
 
     /**
      * Test of setCost method, of class Payment.
-     */
+     
     @Test
     public void testSetCost() {
         System.out.println("setCost");
@@ -70,7 +70,7 @@ public class PaymentTest {
 
     /**
      * Test of getPaymentDate method, of class Payment.
-     */
+     
     @Test
     public void testGetPaymentDate() {
         System.out.println("getPaymentDate");
@@ -84,7 +84,7 @@ public class PaymentTest {
 
     /**
      * Test of setPaymentDate method, of class Payment.
-     */
+     
     @Test
     public void testSetPaymentDate() {
         System.out.println("setPaymentDate");
@@ -97,7 +97,7 @@ public class PaymentTest {
 
     /**
      * Test of getPaymentState method, of class Payment.
-     */
+     
     @Test
     public void testGetPaymentState() {
         System.out.println("getPaymentState");
@@ -111,7 +111,7 @@ public class PaymentTest {
 
     /**
      * Test of setPaymentState method, of class Payment.
-     */
+     
     @Test
     public void testSetPaymentState() {
         System.out.println("setPaymentState");
@@ -124,7 +124,7 @@ public class PaymentTest {
 
     /**
      * Test of getCardNumber method, of class Payment.
-     */
+     
     @Test
     public void testGetCardNumber() {
         System.out.println("getCardNumber");
@@ -138,7 +138,7 @@ public class PaymentTest {
 
     /**
      * Test of setCardNumber method, of class Payment.
-     */
+     
     @Test
     public void testSetCardNumber() {
         System.out.println("setCardNumber");
@@ -151,7 +151,7 @@ public class PaymentTest {
 
     /**
      * Test of getSubscription method, of class Payment.
-     */
+     
     @Test
     public void testGetSubscription() {
         System.out.println("getSubscription");
@@ -165,7 +165,7 @@ public class PaymentTest {
 
     /**
      * Test of setSubscription method, of class Payment.
-     */
+     
     @Test
     public void testSetSubscription() {
         System.out.println("setSubscription");
@@ -224,24 +224,25 @@ public class PaymentTest {
     @Test
     public void testGenerateReceipt() {
         // Prepare data for the receipt
-        int monthNumber = 2;
+        
         double cost = 1400;
         int startDate = 1;
-        
+        int monthNumber = 2;
+        int year=2025;
         
         // Redirect System.out to capture printed output
         ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
 
         // Call the method to test
-        Payment.generateReceipt(monthNumber, cost, startDate);
+        Payment.generateReceipt( cost, startDate,monthNumber ,year);
 
         // Expected receipt output
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String expectedOutput = "Receipt:\n" +
-                                "Month Number: 5\n" +
-                                "Cost: $50.0\n" +
-                                "Start Date: " + dateFormat.format(startDate) + "\n" ;
+        
+        String expectedOutput =" Receipt:\n"+
+                                "Month Number: 2\n"+
+                                "Cost: $1400.0\n"+
+                                "Start Date: 1/2/2025\n" ;
                                 
 
         // Check if the output matches the expected receipt

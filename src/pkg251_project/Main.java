@@ -6,10 +6,6 @@
 package pkg251_project;
 
 
-import java.util.ArrayList;
-
-import java.util.List;
-
 import java.util.Scanner;
 
 
@@ -92,7 +88,7 @@ public class Main {
             System.out.println("pleas enter your cridet card number ");
             String card = scanner.next();
             if(paymentSystem.verifyPayment(card)){
-            paymentSystem.generateReceipt(Month ,cost,Day );
+            paymentSystem.generateReceipt(cost,Day ,Month,year);
             } 
            
         } else if (subOption == 2){

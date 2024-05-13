@@ -41,6 +41,7 @@ public class BusTest {
     /**
      * Test of getBusID method, of class Bus.
      */
+    /*
     @Test
     public void testGetBusID() {
         System.out.println("getBusID");
@@ -54,7 +55,7 @@ public class BusTest {
 
     /**
      * Test of setBusID method, of class Bus.
-     */
+     
     @Test
     public void testSetBusID() {
         System.out.println("setBusID");
@@ -67,7 +68,7 @@ public class BusTest {
 
     /**
      * Test of getCapacity method, of class Bus.
-     */
+     
     @Test
     public void testGetCapacity() {
         System.out.println("getCapacity");
@@ -81,7 +82,7 @@ public class BusTest {
 
     /**
      * Test of setCapacity method, of class Bus.
-     */
+     
     @Test
     public void testSetCapacity() {
         System.out.println("setCapacity");
@@ -94,7 +95,7 @@ public class BusTest {
 
     /**
      * Test of getCurrentLocation method, of class Bus.
-     */
+     
     @Test
     public void testGetCurrentLocation() {
         System.out.println("getCurrentLocation");
@@ -108,7 +109,7 @@ public class BusTest {
 
     /**
      * Test of setCurrentLocation method, of class Bus.
-     */
+     
     @Test
     public void testSetCurrentLocation() {
         System.out.println("setCurrentLocation");
@@ -121,7 +122,7 @@ public class BusTest {
 
     /**
      * Test of isIsAvailable method, of class Bus.
-     */
+     
     @Test
     public void testIsIsAvailable() {
         System.out.println("isIsAvailable");
@@ -135,7 +136,7 @@ public class BusTest {
 
     /**
      * Test of setIsAvailable method, of class Bus.
-     */
+     
     @Test
     public void testSetIsAvailable() {
         System.out.println("setIsAvailable");
@@ -145,6 +146,7 @@ public class BusTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+    */
 //////////////////////////////////////////////////////////////////////////////////////
     /**
      * Test of checkCapacity method, of class Bus
